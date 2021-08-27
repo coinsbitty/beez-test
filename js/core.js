@@ -48,13 +48,7 @@ let user = {
 
 $(document).ready(function() {
 	createCookie()
-	connect()
 })
-
-async function connect(){
-	await init()
-	onConnect()
-}
 
 async function initContract(){
 	user.address = selectedAccount

@@ -1,12 +1,8 @@
 var nextWithdraw = 0
 async function startUp(){
 	try{
-		$("#stakeContractAddress").effect("fade", 2500, function() {
-			$("#stakeContractAddress").fadeIn();
-			$("#stakeContractAddress").on('click',function() {
-			window.open(bscScan);
-			})
-		});
+		if($("#contract-address") != undefined)
+			$('.contract-address')[0].innerHTML = `<a class="btn btn-sm btn-primary display-5" href="https://bscscan.com/address/`+tokenAddress+`" target="_blank"><br>Contract Address\n` + tokenAddress + `</a></div>`
 		checkAllowance()
 		$('#reflink')[0].innerHTML = thisURL+user.address;
 		contractBalances()
@@ -23,7 +19,6 @@ async function startUp(){
 		getUserReferralBonus()
 		getUserWithdrawTime()
 		
-		$('.contract-address')[0].innerHTML = `<a class="btn btn-sm btn-primary display-5" href="https://bscscan.com/address/`+tokenAddress+`" target="_blank"><br>Contract Address\n` + tokenAddress + `</a></div>`
 	}catch(e){
 		alert(e)
 		console.log(e)
